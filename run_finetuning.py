@@ -334,19 +334,33 @@ def main():
     dataset_config_names = [dataset_config_name.strip() for dataset_config_name in data_args.dataset_config_name.split(",")]
     dataset_data_dirs = [dataset_data_dir.strip() if len(dataset_data_dir) != 0 else None
                          for dataset_data_dir in data_args.dataset_data_dir.split(",")]
+    train_split_names = [train_split_name.strip() if len(train_split_name) != 0 else None
+                         for train_split_name in data_args.train_split_name.split(",")]
+    validation_split_names = [validation_split_name.strip() if len(validation_split_name) != 0 else None
+                              for validation_split_name in data_args.validation_split_name.split(",")]
     if len(dataset_names) != len(dataset_config_names) or len(dataset_names) != len(dataset_data_dirs):
         print("dataset_names should have the same number of entries as dataset_config_names")
         exit(1)
 
     # Get the datasets:
-    train_dataset = None
-    eval_dataset = None
+    train_dataset = eval_dataset = None
     for i, dataset_name in enumerate(dataset_names):
         dataset = datasets.load_dataset(
-            dataset_name, dataset_config_names[i], data_dir=dataset_data_dirs[i]
+            dataset_name, dataset_config_names[i], data_dir=dataset_data_dirs[i], split=train_split_names[i]
         )
-        dataset = dataset["train"].train_test_split(test_size=data_args.dataset_data_test_size, seed=training_args.seed)
-        if train_dataset is None:
+        dataset = dataset.remove_columns(list(set(dataset.features) - {"path", "sentence"}))
+        if validation_split_names[i] is None:
+            dataset = dataset.train_test_split(test_size=data_args.dataset_data_test_size, seed=training_args.seed)
+        else:
+            dataset_test = datasets.load_dataset(
+                    dataset_name, dataset_config_names[i], data_dir=dataset_data_dirs[i],
+                    split=validation_split_names[i])
+            dataset_test = dataset_test.remove_columns(list(set(dataset_test.features) - {"path", "sentence"}))
+            dataset = {
+                "train": dataset,
+                "test": dataset_test
+            }
+        if i == 0:
             train_dataset = dataset["train"]
             eval_dataset = dataset["test"]
         else:
