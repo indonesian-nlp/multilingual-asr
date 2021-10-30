@@ -104,6 +104,8 @@ def main():
     else:
         test_dataset = test_dataset["train"].train_test_split(test_size=args.dataset_data_test_size,
                                                               seed=args.seed)
+        test_dataset = test_dataset["test"]
+
     if args.cpu:
         device = "cpu"
     else:
