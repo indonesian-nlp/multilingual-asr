@@ -100,7 +100,7 @@ def main():
     test_dataset = load_dataset(args.dataset_name, args.dataset_config_name, data_dir=args.dataset_data_dir)
     if "test" in test_dataset:
         test_dataset = load_dataset(args.dataset_name, args.dataset_config_name, data_dir=args.dataset_data_dir,
-                               split=f"test[:{args.dataset_data_test_size*100}%]")
+                               split=f"test")
     else:
         test_dataset = test_dataset["train"].train_test_split(test_size=args.dataset_data_test_size,
                                                               seed=args.seed)
