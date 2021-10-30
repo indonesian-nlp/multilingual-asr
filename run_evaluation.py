@@ -52,6 +52,8 @@ def main():
                         help="The config name of the dataset")
     parser.add_argument("-d", "--dataset_data_dir", type=str, required=False, default=None,
                         help="The directory contains the dataset")
+    parser.add_argument("-t", "--dataset_data_test_size", type=float, required=False, default=0.1,
+                        help="The data test size")
     parser.add_argument("-b", "--batch_size", type=int, required=False, default=16,
                         help="Batch size")
     parser.add_argument("-k", "--kenlm", type=str, required=False, default=False,
@@ -60,10 +62,10 @@ def main():
                         help="KenLM's number of workers")
     parser.add_argument("-w", "--beam_width", type=int, required=False, default=128,
                         help="KenLM's beam width")
-    parser.add_argument("--test_pct", type=int, required=False, default=100,
-                        help="Percentage of the test set")
     parser.add_argument("--cpu", required=False, action='store_true',
                         help="Force to use CPU")
+    parser.add_argument("-s", "--seed", type=int, required=False, default=42,
+                        help="Random seed number")
     args = parser.parse_args()
 
     set_seed(42)  # set the random seed to have reproducible result.
@@ -95,14 +97,19 @@ def main():
         batch["norm_text"] = unidecode.unidecode(batch["norm_text"])
         return batch
 
-    lg_test = load_dataset(args.dataset_name, args.dataset_config_name, data_dir=args.dataset_data_dir,
-                           split=f"test[:{args.test_pct}%]")
+    test_dataset = load_dataset(args.dataset_name, args.dataset_config_name, data_dir=args.dataset_data_dir)
+    if "test" in test_dataset:
+        test_dataset = load_dataset(args.dataset_name, args.dataset_config_name, data_dir=args.dataset_data_dir,
+                               split=f"test[:{args.dataset_data_test_size*100}%]")
+    else:
+        test_dataset = test_dataset["train"].train_test_split(test_size=args.dataset_data_test_size,
+                                                              seed=args.seed)
     if args.cpu:
         device = "cpu"
     else:
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    lg_test = lg_test.map(speech_file_to_array_fn)
-    lg_test = lg_test.map(remove_special_characters)
+    test_dataset = test_dataset.map(speech_file_to_array_fn)
+    test_dataset = test_dataset.map(remove_special_characters)
     model = model.to(device)
     wer = load_metric("wer")
 
@@ -120,7 +127,7 @@ def main():
             batch["pred_strings"] = processor.batch_decode(predicted_ids)
         return batch
 
-    result = lg_test.map(evaluate, batched=True, batch_size=batch_size)
+    result = test_dataset.map(evaluate, batched=True, batch_size=batch_size)
     WER = 100 * wer.compute(predictions=result["pred_strings"], references=result["norm_text"])
     print(f"WER: {WER:.2f}%")
 
