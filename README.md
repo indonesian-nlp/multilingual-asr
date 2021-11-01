@@ -22,4 +22,4 @@
 | indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 300 | Sundanese | test* | 6.72 |
 |            |         |       |     |
 
-![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/blob/master/images/ASR-Comparison.png "ASR-Comparison")
+![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/raw/main/images/ASR-Comparison.png "ASR-Comparison")
