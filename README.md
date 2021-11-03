@@ -2,10 +2,11 @@
 
 ## Introduction
 Automatic Speech Recognition (ASR) enables the recognition and translation of spoken language into text. Typically 
-the ASR Model is trained and used for a specific language. However, Indonesia has more than 700 spoken languages [1]. 
+the ASR Model is trained and used for a specific language. However, Indonesia has more than 
+[700 spoken languages](https://en.wikipedia.org/wiki/Languages_of_Indonesia). 
 It is not practicable to provide a speech recognition model for each language.
 
-This project aims to develop a multilingual speech recognition model that can support the main Indonesian languages 
+Therefore, we want to develop a multilingual speech recognition model that can support the main Indonesian languages 
 without sacrificing model performance for each language.
 
 ## Objectives
