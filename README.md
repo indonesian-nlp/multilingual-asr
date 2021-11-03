@@ -31,10 +31,12 @@ Wav2vec 2.0 models with a single language for Indonesian, Java, and Sundanese, e
 
 ## Results and Comparison
 
-Following is the list of the evaluation of each model:
+Following is the comparison of the models and the list of its performance evaluation:
 
+### The Models Comparison
 ![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/raw/main/images/ASR-Comparison.png "ASR-Comparison")
 
+### The detail of the performance evaluation
 | Model Name | Training Dataset | Training Split Name | KenLM | Epoch | Test Dataset | Test Split Name |  WER (%) |
 |------------|---------|-------|-------|-------|-------|-------|-----|
 | indonesian-nlp/wav2vec2-indonesian | Indonesian | train+valid+other | false | 200 | Indonesian | test | 12.20 |
