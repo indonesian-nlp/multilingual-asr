@@ -23,8 +23,8 @@ We used the following speech datasets for the training/finetuning:
 We used [Wav2vec 2.0](https://arxiv.org/abs/2006.11477), a framework for self-supervised learning of speech 
 representations which is now state of the art on the [Librispeech benchmark](https://paperswithcode.com/sota/speech-recognition-on-librispeech-test-clean)
 for noisy speech, for [Indonesia](https://paperswithcode.com/sota/speech-recognition-on-common-voice-indonesian), 
-[Sundanese](https://paperswithcode.com/sota/speech-recognition-on-openslr-high-quality) and 
-[Javanese](https://paperswithcode.com/sota/speech-recognition-on-openslr-high-quality-1) language.
+[Javanese](https://paperswithcode.com/sota/speech-recognition-on-openslr-high-quality) and 
+[Sundanese](https://paperswithcode.com/sota/speech-recognition-on-openslr-high-quality-1) language.
 
 We trained a multilingual Wav2vec 2.0 model with the three languages combined for 200 epochs. We also trained three 
 Wav2vec 2.0 models with a single language for Indonesian, Java, and Sundanese, each for 200 epochs.
