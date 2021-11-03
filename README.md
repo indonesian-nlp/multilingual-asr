@@ -37,21 +37,22 @@ Following is the comparison of the models and the list of its performance evalua
 ![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/raw/main/images/ASR-Comparison.png "ASR-Comparison")
 
 ### The detail of the performance evaluation
-| Model Name | Training Dataset | Training Split Name | KenLM | Epoch | Test Dataset | Test Split Name |  WER (%) |
-|------------|---------|-------|-------|-------|-------|-------|-----|
-| indonesian-nlp/wav2vec2-indonesian | Indonesian | train+valid+other | false | 200 | Indonesian | test | 12.20 |
-| indonesian-nlp/wav2vec2-indonesian | Indonesian | train+valid+other | false | 200 | Javanese | test* | 78.06 |
-| indonesian-nlp/wav2vec2-indonesian | Indonesian | train+valid+other | false | 200 | Sundanese | test* | 64.04 |
-| indonesian-nlp/wav2vec2-javanese | Javanese | train* | false | 200 | Indonesian | test | 85.16 |
-| indonesian-nlp/wav2vec2-javanese | Javanese | train* | false | 200 | Javanese | test* | 16.92 |
-| indonesian-nlp/wav2vec2-javanese | Javanese | train* | false | 200 | Sundanese | test* | 69.26 |
-| indonesian-nlp/wav2vec2-sundanese | Sundanese | train* | false | 200 | Indonesian | test | 78.03 |
-| indonesian-nlp/wav2vec2-sundanese | Sundanese | train* | false | 200 | Javanese | test* | 81.04 |
-| indonesian-nlp/wav2vec2-sundanese | Sundanese | train* | false | 200 | Sundanese | test* | 6.74 |
-| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 200 | Indonesian | test | 12.38 |
-| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 200 | Javanese | test* | 17.52 |
-| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 200 | Sundanese | test* | 7.34 |
-| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 300 | Indonesian | test | 11.57 |
-| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 300 | Javanese | test* | 16.57 |
-| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 300 | Sundanese | test* | 6.72 |
-|            |         |       |     |
+The performance evaluation can be found [here](https://github.com/indonesian-nlp/multilingual-asr/blob/main/evaluation.md)
+
+## Conclusion
+- The experiment shows that the multilingual model can perform on par with a model trained on a 
+single language; the Word Error Rate (WER) difference is maximal 0.6 absolute percent. We also 
+trained the multilingual model with more epochs, and it outperforms the monolingual model.
+- The monolingual model performs very well in the language we trained for but poorly in other 
+languages.
+- The multilingual speech recognition model overcomes the need to have a separate model for each 
+language in Indonesia. Therefore, it significantly reduces hardware resources and simplifies 
+the model deployment.
+
+## Future Works
+We plan following for the future:
+- Training the model with more data and more Indonesian languages.
+- Integrating Language Model to reduce the WER
+- Compressing the model size for speeding up the inferencing time and reducing
+hardware resources
+- Developing real-time speech recognition based on this multilingual model.
