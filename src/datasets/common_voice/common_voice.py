@@ -606,7 +606,7 @@ class CommonVoiceConfig(datasets.BuilderConfig):
         self.num_of_voice = kwargs.pop("num_of_voice", None)
         description = f"Common Voice speech to text dataset in {self.language} version {self.sub_version} of {self.date_of_snapshot}. The dataset comprises {self.validated_hr_total} of validated transcribed speech data from {self.num_of_voice} speakers. The dataset has a size of {self.size}"
         super(CommonVoiceConfig, self).__init__(
-            name=name, version=datasets.Version("6.1.0", ""), description=description, **kwargs
+            name=name, version=datasets.Version("7.0.0", ""), description=description, **kwargs
         )
 
 
