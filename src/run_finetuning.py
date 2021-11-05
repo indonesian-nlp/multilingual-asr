@@ -154,7 +154,8 @@ class DataTrainingArguments:
         },
     )
     chars_to_ignore: List[str] = list_field(
-        default=[",", "?", ".", "!", "-", ";", ":", '""', "%", "'", '"', "�", "‘", "’", "’"],
+        default=[",", "?", ".", "!", "-", ";", ":", '""', "%", "'", '"', "�", "‘", "’", "’",
+                 "\u0142", "\u0144", "\u014d", "\u2013", "\u2014", "\u201c", "\u201d"],
         metadata={"help": "A list of characters to remove from the transcripts."},
     )
 
@@ -384,6 +385,8 @@ def main():
     def remove_special_characters(batch):
         batch["text"] = re.sub(chars_to_ignore_regex, "", batch["sentence"]).lower() + " "
         batch["text"] = batch["text"].replace('è', 'é')
+        batch["text"] = batch["text"].replace("\u00e1", 'a')
+        batch["text"] = batch["text"].replace("\u00e9", 'e')
         return batch
 
     train_dataset = train_dataset.map(remove_special_characters, remove_columns=["sentence"])
