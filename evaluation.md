@@ -16,6 +16,9 @@
 | indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 200 | Javanese | test* | 17.52 |
 | indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 200 | Sundanese | test* | 7.34 |
 | indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 300 | Indonesian | test | 11.57 |
+| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | true | 300 | Indonesian | test | 8.40 |
+| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese v7 | train+valid+other, train*, train* | true (Wiki) | 300+ | Indonesian | test | 5.15 |
+| indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese v7 | train+valid+other, train*, train* | true (CV) | 300+ | Indonesian | test | 4.27 |
 | indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 300 | Javanese | test* | 16.57 |
 | indonesian-nlp/wav2vec2-indonesian-javanese-sundanese | Indonesian+Javanese+Sundanese | train+valid+other, train*, train* | false | 300 | Sundanese | test* | 6.72 |
 |            |         |       |     |
