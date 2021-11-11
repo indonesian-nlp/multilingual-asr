@@ -1,5 +1,17 @@
 import re
 from num2words import num2words
+import os
+
+
+def get_abs_path(rel_path):
+    """
+    Get absolute path
+    Args:
+        rel_path: relative path to this file
+
+    Returns absolute path
+    """
+    return os.path.dirname(os.path.abspath(__file__)) + '/' + rel_path
 
 
 class TextProcessor:
@@ -7,9 +19,9 @@ class TextProcessor:
     months = ["Januari", "Februari", "Maret", "April",
               "Mei", "Juni", "Juli", "Agustus",
               "September", "Oktober", "November", "Desember"]
-    measurements_path = "util/measurements.tsv"
-    currencies_path = "util/currency.tsv"
-    timezones_path = "util/timezones.tsv"
+    measurements_path = get_abs_path("measurements.tsv")
+    currencies_path = get_abs_path("currency.tsv")
+    timezones_path = get_abs_path("timezones.tsv")
 
     def __init__(self):
         self.measurements = {}
