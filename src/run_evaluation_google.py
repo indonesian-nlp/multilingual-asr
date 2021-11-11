@@ -4,7 +4,6 @@ import re
 import unidecode
 from util.text_processor import TextProcessor
 
-gc_dir = Path("/Users/cahya/Work/Machine Learning/data/ASR/cv-corpus-6.1-2020-12-11/id/test-gc")
 transcript_file = Path("transcription_google.tsv")
 chars_to_ignore = [",", "?", ".", "!", "-", ";", ":", '""', "%", "'", '"', "�", "‘", "’", "’"]
 chars_to_ignore_regex = f'[{"".join(chars_to_ignore)}]'
