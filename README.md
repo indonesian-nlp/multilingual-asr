@@ -68,7 +68,7 @@ the model deployment.
 ## Future Works
 We plan following for the future:
 - Training the model with more data and more Indonesian languages.
-- Integrating Language Model to reduce the WER
+- ~~Integrating Language Model to reduce the WER~~
 - Compressing the model size for speeding up the inferencing time and reducing
 hardware resources
 - Developing real-time speech recognition based on this multilingual model.
