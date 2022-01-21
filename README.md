@@ -39,16 +39,18 @@ to test the model.
 Following is the comparison of the models and the list of its performance evaluation:
 
 ### The Models Comparison
-Following figure is the model comparison for the Test split of Indonesian Common Voice 6.1.
+The following figure is the model comparison by Word Error Rate (WER) for the Test split of Indonesian Common Voice 6.1 
+(less is better)
 
 #### Without Language Model 
 ![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/raw/main/images/ASR-Comparison.png "ASR-Comparison")
 
 #### With Language Model 
-*TODO* (The best WER using a language model for the Test split of Indonesian Common Voice 6.1 is **4.27%**.)
+Lastly, we integrated a language model into our speech recognition pipeline, which reduces the WER from 11.57% to 
+**4.27%** on the Test split of Indonesian Common Voice 6.1.
 
-We evaluated the performance of [Google Speech To Text](https://cloud.google.com/speech-to-text), its WER for the Test
-split of Indonesian Common Voice 6.1 is **9.22%**.
+We also evaluated the performance of [Google Speech To Text](https://cloud.google.com/speech-to-text), its WER 
+for the Test split of Indonesian Common Voice 6.1 is **9.22%**.
 
 ### The detail of the performance evaluation
 The performance evaluation can be found [here](https://github.com/indonesian-nlp/multilingual-asr/blob/main/evaluation.md)
