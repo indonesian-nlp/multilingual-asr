@@ -1,5 +1,5 @@
 {
-  "model_name_or_path": "/workspace/output_models/wav2vec2-jv-su-id-500",
+  "model_name_or_path": "indonesian-nlp/wav2vec2-indonesian-javanese-sundanese",
   "dataset_name": "openslr,openslr,datasets/common_voice,datasets/magic_data,datasets/magic_data,datasets/titml",
   "dataset_config_name": "SLR41,SLR44,id,id,id,id",
   "dataset_data_dir": ",,/dataset/ASR/indonesian/cv-corpus-7.0-2021-07-21,/dataset/ASR/indonesian/Indonesian_Scripted_Speech_Corpus_Daily_Use_Sentence,/dataset/ASR/indonesian/Indonesian_Conversational_Speech_Corpus_Split,/dataset/ASR/indonesian/TITML-IDN",
