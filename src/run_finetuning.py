@@ -413,7 +413,9 @@ def main():
     )
 
     # The vocab list should include all ascii charachters
-    vocab_list = sorted(list(set(vocab_train["vocab"][0]) | set(vocab_test["vocab"][0]) | set(string.ascii_lowercase)))
+    vocab_list = sorted(list(set(vocab_train["vocab"][0]) | set(vocab_test["vocab"][0]) |
+                             set(string.ascii_lowercase) | {'é'} - {'['}))
+    print("vocab", vocab_list)
     vocab_dict = {v: k for k, v in enumerate(vocab_list)}
     vocab_dict["|"] = vocab_dict[" "]
     del vocab_dict[" "]
