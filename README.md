@@ -1,6 +1,6 @@
 # Multilingual Speech Recognition for Indonesian Languages
 
-[*Speech Recognition Live Demo*](https://huggingface.co/spaces/indonesian-nlp/multilingual-asr)
+[*Speech Recognition Live Demo*](https://asr.ai-research.id)
 ## Introduction
 Automatic Speech Recognition (ASR) enables the recognition and translation of spoken language into text. Typically 
 the ASR Model is trained and used for a specific language. However, Indonesia has more than 
@@ -43,14 +43,15 @@ The following figure is the model comparison by Word Error Rate (WER) for the Te
 (less is better)
 
 #### Without Language Model 
-![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/raw/main/images/ASR-Comparison.png "ASR-Comparison")
+![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/raw/main/images/ASR-Comparison-2021.png "ASR-Comparison")
 
 #### With Language Model 
 Lastly, we integrated a language model into our speech recognition pipeline, which reduces the WER from 11.57% to 
 **4.27%** on the Test split of Indonesian Common Voice 6.1.
-
 We also evaluated the performance of [Google Speech To Text](https://cloud.google.com/speech-to-text), its WER 
 for the Test split of Indonesian Common Voice 6.1 is **9.22%**.
+
+![ASR-Comparison](https://github.com/indonesian-nlp/multilingual-asr/raw/main/images/ASR-Comparison-2022.png "ASR-Comparison")
 
 ### The detail of the performance evaluation
 The performance evaluation can be found [here](https://github.com/indonesian-nlp/multilingual-asr/blob/main/evaluation.md)
