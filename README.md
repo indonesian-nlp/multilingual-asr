@@ -1,6 +1,6 @@
 # Multilingual Speech Recognition for Indonesian Languages
 
-[*Speech Recognition Live Demo*](https://asr.ai-research.id)
+[*Speech Recognition Live Demo*](https://huggingface.co/spaces/indonesian-nlp/multilingual-asr)
 ## Introduction
 Automatic Speech Recognition (ASR) enables the recognition and translation of spoken language into text. Typically 
 the ASR Model is trained and used for a specific language. However, Indonesia has more than 
@@ -33,7 +33,7 @@ Wav2vec 2.0 models with a single language for Indonesian, Java, and Sundanese, e
 ## Results and Comparison
 
 We built a [multilingual Speech Recognition model](https://huggingface.co/indonesian-nlp/wav2vec2-indonesian-javanese-sundanese) 
-and publish it as open source model. We also provide a [live demo](https://asr.ai-research.id) 
+and publish it as open source model. We also provide a [live demo](https://huggingface.co/spaces/indonesian-nlp/multilingual-asr)
 to test the model.
 
 Following is the comparison of the models and the list of its performance evaluation:
